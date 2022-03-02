@@ -1,5 +1,6 @@
 package Despegar;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import org.openqa.selenium.By;
@@ -9,11 +10,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-
 public class NewTest {
+	@DataProvider (name = "Data provider despegar")
+	public Object [][]datadespegar(){
+		return new Object [][] {{" Barcelona"},{" Bariloche"},{" Carlos Paz"}};
+	}
 	
-	@Test(description = "Validar busqueda de alojamiento")
-	public void ValidarBusquedaDespegar() throws Exception {
+	@Test(dataProvider = "Data provider despegar",description = "Validar busqueda de alojamiento")
+	public void ValidarBusquedaDespegar(String Busqueda) throws Exception {
 	System.setProperty("webdriver.chrome.driver","C:/driver/chromedriver.exe");
 	WebDriver driver = new ChromeDriver();
 	driver.get("http://despegar.com.ar");
@@ -29,7 +33,7 @@ public class NewTest {
 	Assert.assertTrue(destino.isDisplayed());
 	destino.click();
 	Thread.sleep(1000);
-	destino.sendKeys(" bariloche");
+	destino.sendKeys(Busqueda);
 	
 	Thread.sleep(3000);
 	destino.sendKeys(Keys.ENTER);	
@@ -40,7 +44,7 @@ public class NewTest {
 	WebElement salida = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.calendar-container div.-today"));
 	Thread.sleep(2000);
 	salida.click();	
-	WebElement vuelta = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.calendar-container div.-selected+div"));
+	WebElement vuelta = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.calendar-container div.-today+div"));
 	vuelta.click();
 	//seleccionar pasajeros
 	WebElement personas = driver.findElement(By.cssSelector("div.sbox5-3-double-input"));
@@ -56,7 +60,7 @@ public class NewTest {
 	WebElement edadmin = menores.findElement(By.cssSelector(".select-option[value='4']"));
 	edadmin.click();
 	Thread.sleep(2000);
-	WebElement aplicar = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.stepper__room__footer>a:nth-child(1)"));
+	WebElement aplicar = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.stepper__room__footer>a:nth-child(1)"));	
 	aplicar.click();
 	Assert.assertTrue(menores.isDisplayed());
 	WebElement buscar = driver.findElement(By.cssSelector("div.sbox5-box-container div.sbox5-box-content button"));
@@ -65,6 +69,7 @@ public class NewTest {
 	Assert.assertTrue(elejir.isDisplayed());
 	WebElement busqueda = driver.findElement(By.cssSelector("div.sbox-wrapper"));
 	System.out.println("Cuadro de busqueda  "+busqueda.isDisplayed());
+	
 	
 	driver.close();
 	}
