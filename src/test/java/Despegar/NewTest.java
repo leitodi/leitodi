@@ -2,8 +2,9 @@ package Despegar;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.apache.bcel.generic.JSR;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,8 @@ public class NewTest {
 	System.setProperty("webdriver.chrome.driver","C:/driver/chromedriver.exe");
 	WebDriver driver = new ChromeDriver();
 	driver.get("http://despegar.com.ar");
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript ("window.scrollBy(0,250)","");
 	driver.manage().window().maximize();
 	
 	//seleccionar alojamiento
@@ -39,6 +42,7 @@ public class NewTest {
 	destino.sendKeys(Keys.ENTER);	
 	System.out.println("Texto encontrado "+ destino.getText());
 	//seleccionar fechas
+	
 	WebElement fecha = driver.findElement(By.cssSelector("div#searchbox-sbox-box-hotels div.sbox5-box-dates-checkbox-container div.sbox5-dates-input1"));
 	fecha.click();
 	WebElement salida = driver.findElement(By.cssSelector("div.sbox5-floating-tooltip-opened div.calendar-container div.-today"));

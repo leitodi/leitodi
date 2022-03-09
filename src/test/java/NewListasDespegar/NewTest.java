@@ -1,8 +1,10 @@
 package NewListasDespegar;
 
+import java.sql.Driver;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,13 +12,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Element;
+import com.selenium.driver.DriverFactory;
 
 public class NewTest {
 	  @DataProvider (name = "diferentesdestinos" )
 	  public Object[][] dataProviderTest (){
-		  return new Object [][] {{" Madrid"}};
+		  return new Object [][] {{" Madrid"}, {" Bariloche"}};
 	  }
 	  
 	  @Test(dataProvider= "diferentesdestinos",description = "Validar botones seleccion")
@@ -24,7 +28,13 @@ public class NewTest {
 		System.setProperty("webdriver.chrome.driver","C:/driver/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://despegar.com.ar");
+		
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript ("window.scrollBy(0,350)","");
 		driver.manage().window().maximize();
+		
 		
 		//Controlar con listas que aparezcan los botones 
 		WebElement alojamiento = null;
@@ -33,14 +43,14 @@ public class NewTest {
 			if(elemento.getText().equals("Alojamientos"))
 			alojamiento= elemento;
 			System.out.println(elemento.getText());			
-		}		 
+		}			
 		alojamiento.click();	
 		Thread.sleep(1000);
 		//elejir ciudad
-		WebElement ciudad = driver.findElement(By.cssSelector("div#searchbox-sbox-box-hotels div.sbox-places-destination--1xd0k input"));
-		ciudad.click();
+		WebElement ciudad = driver.findElement(By.cssSelector("div#searchbox-sbox-box-hotels div.sbox-places-destination--1xd0k input"));		
+		ciudad.click();	
 		Thread.sleep(1000);
-		ciudad.sendKeys(ciudades);
+		ciudad.sendKeys(ciudades);		
 		Thread.sleep(2000);
 		ciudad.sendKeys(Keys.ENTER);
 		//elejir noches
