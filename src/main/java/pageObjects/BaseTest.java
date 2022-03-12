@@ -1,27 +1,28 @@
-package com.selenium.driver;
-
+package pageObjects;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 
-public class DriverFactory {
-
-	private enum  browsers {
-		EXPLORER, SAFARI,FIREFOX,CHROME 
-	};
-	
-	public static WebDriver Levantarbrowser (WebDriver driver, String browserName, String URL)
-	{
-		switch (browsers.valueOf(browserName)) {
-		case CHROME :
+public class BaseTest {
+	public static void goToMainPage (WebDriver driver) {
+		driver.get("http://wikipedia.org");
+	}
+	public static void despegarInicio (WebDriver driver) {
+		driver.get("http://despegar.com.ar");
+	}
+	public static WebDriver iniciarDriver(String browserName) {
+		WebDriver driver = null;
+		switch (browserName) {
+		case "CHROME" :
 		{
 			System.setProperty("webdriver.chrome.driver", "src\\main\\java\\Recursos\\chromedriver.exe");
 			Reporter.log("Abro browser");
 			driver = new ChromeDriver();
 			break;
 		}
-		case FIREFOX:
+		case "FIREFOX":
 		{
 			System.setProperty("webdriver.gecko.driver", "src\\main\\java\\Recursos\\geckodriver.exe");
 			Reporter.log("Abro browser");
@@ -33,11 +34,13 @@ public class DriverFactory {
 			System.setProperty("webdriver.chrome.driver", "src\\main\\java\\Recursos\\chromedriver.exe");
 			Reporter.log("Abro browser");
 			driver = new ChromeDriver();
-			break;
+			break;			
 		}
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript ("window.scrollBy(0,350)","");
+		driver.manage().window().maximize();		
+		return driver;	
 		
-		driver.manage().window().maximize();
-		driver.get(URL);
-		return driver;
 	}
+
 }

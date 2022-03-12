@@ -2,7 +2,7 @@ package Despegar;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.apache.bcel.generic.JSR;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class NewTest {
+public class DespegarTest {
 	@DataProvider (name = "Data provider despegar")
 	public Object [][]datadespegar(){
 		return new Object [][] {{" Barcelona"},{" Bariloche"},{" Carlos Paz"}};

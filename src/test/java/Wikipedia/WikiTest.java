@@ -1,3 +1,4 @@
+package Wikipedia;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class NewTest {
+public class WikiTest {
 	@DataProvider(name= "Data provider Wiki")
 	public Object [][] dpMethod(){
 		return new Object [][] {{"selenium"},{"java"},{"TestNG"}};
@@ -19,6 +20,8 @@ public class NewTest {
 	    System.setProperty("webdriver.chrome.driver", "C:/driver/chromedriver.exe");
 	    WebDriver driver = new ChromeDriver();
 	    driver.get("http://wikipedia.org");
+	    
+	    
 	    WebElement searchInput = driver.findElement(By.id("searchInput"));
 	    Assert.assertTrue(searchInput.isDisplayed());
 	    searchInput.sendKeys(searchText);
