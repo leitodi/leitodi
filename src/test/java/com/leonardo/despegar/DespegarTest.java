@@ -1,4 +1,4 @@
-package Despegar;
+package com.leonardo.despegar;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

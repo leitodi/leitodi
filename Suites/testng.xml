@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suites">
   <parameter name="NAVEGADOR" value="CHROME"/>
   <test thread-count="5" name="FirstTest">
 	<groups>
 	  <run>
-		<include name="grupo_1"/>		
+		<include name="DespegarTest"/>
+		<include name="grupo_1" />
 	  </run>
 	</groups>
     <classes>
-      <class name="Despegar.DespegarTest4"/>
-	  <class name="Wikipedia.WikiTest2"/>
+      <class name="com.leonardo.despegar.DespegarTest4"/>
+	  <class name="com.leonardo.wikipedia.WikiTest3"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

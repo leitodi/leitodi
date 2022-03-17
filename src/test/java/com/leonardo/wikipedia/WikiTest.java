@@ -1,6 +1,6 @@
 
 
-package Wikipedia;
+package com.leonardo.wikipedia;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

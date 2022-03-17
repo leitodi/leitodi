@@ -1,4 +1,4 @@
-package Wikipedia;
+package com.leonardo.wikipedia;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -7,9 +7,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pageObjects.BaseTest;
-import pageObjects.WikiHomePage;
-import pageObjects.WikiResultsPage;
+import com.leonardo.pageObjects.BaseTest;
+import com.leonardo.pageObjects.WikiHomePage;
+import com.leonardo.pageObjects.WikiResultsPage;
 
 
 public class WikiTest2 extends BaseTest {

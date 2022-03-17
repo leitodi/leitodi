@@ -1,4 +1,4 @@
-package Despegar;
+package com.leonardo.despegar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,10 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.leonardo.driver.DriverFactory;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.selenium.driver.DriverFactory;
 
 public class DespegarTest3 {
 	  @DataProvider (name = "diferentesdestinos" )

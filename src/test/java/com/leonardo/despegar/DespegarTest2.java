@@ -1,4 +1,4 @@
-package Despegar;
+package com.leonardo.despegar;
 
 
 import java.util.List;
