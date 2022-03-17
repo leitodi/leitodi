@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DespegarHomePage {
 	@FindBy(css = "div.header-products-container>ul>li>a[title='Alojamientos']")
-	WebElement alojamiento;
+	WebElement alojamiento; 	
+	private WebDriver driver = null; 
 	
-	private WebDriver driver = null;
-	public DespegarHomePage (WebDriver driver){
+	public DespegarHomePage (WebDriver driver){//constructor
 	this.driver = driver ;
 	PageFactory.initElements(driver, this);
     }

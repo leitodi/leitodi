@@ -10,7 +10,7 @@ import pageObjects.WikiResultsPage;
 
 
 public class WikiTest2 extends BaseTest {
-  @Test(description= "validar busqueda")
+  @Test(groups = {"grupo_1"}, description= "validar busqueda")
   public void validarBusquedaWikipedia() throws Exception {
 	  WebDriver driver= BaseTest.iniciarDriver("CHROME");
 	  BaseTest.goToMainPage(driver);
