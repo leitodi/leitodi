@@ -14,7 +14,7 @@ import org.testng.Assert;
 public class DespegarTest {
 	@DataProvider (name = "Data provider despegar")
 	public Object [][]datadespegar(){
-		return new Object [][] {{" Barcelona"},{" Bariloche"},{" Carlos Paz"}};
+		return new Object [][] {{" Bariloche"},{" Carlos Paz"}};
 	}
 	
 	@Test(dataProvider = "Data provider despegar",description = "Validar busqueda de alojamiento")

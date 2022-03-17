@@ -1,3 +1,5 @@
+
+
 package Wikipedia;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,7 +13,7 @@ import org.testng.Assert;
 public class WikiTest {
 	@DataProvider(name= "Data provider Wiki")
 	public Object [][] dpMethod(){
-		return new Object [][] {{"selenium"},{"java"},{"TestNG"}};
+		return new Object [][] {{"selenium"},{"java"}};
 	}
 	
 	

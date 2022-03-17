@@ -24,14 +24,11 @@ public class DespegarTest2 {
 		public void Validarbotonesseleccion(String ciudades) throws Exception {
 		System.setProperty("webdriver.chrome.driver","C:/driver/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://despegar.com.ar");
-		
-		
+		driver.get("http://despegar.com.ar");		
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript ("window.scrollBy(0,350)","");
-		driver.manage().window().maximize();
-		
+		driver.manage().window().maximize();		
 		
 		//Controlar con listas que aparezcan los botones 
 		WebElement alojamiento = null;
