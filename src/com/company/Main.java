@@ -12,6 +12,8 @@ public class Main
         Coche miCoche = new Coche( );
         System.out.println("el coche tiene "+miCoche.incrementarPuertas(5)+" puertas");
         System.out.println("La suma es: "+resultado);
+
+        
     }
 public static int  sumar (int n1, int n2,int n3){
     int resultado = n1+n2+n3;
