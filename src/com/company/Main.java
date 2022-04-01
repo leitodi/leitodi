@@ -9,7 +9,7 @@ public class Main
         System.out.println("Hola Mundo");
         var resultado =  sumar(5,25,48);
 
-        Coche miCoche = new Coche();
+        Coche miCoche = new Coche( );
         System.out.println("el coche tiene "+miCoche.incrementarPuertas(5)+" puertas");
         System.out.println("La suma es: "+resultado);
     }
